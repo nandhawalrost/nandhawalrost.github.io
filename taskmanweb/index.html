@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taskmanweb</title>
+</head>
+<body style="background-color: #212121;">
+  <p style="color:rgb(255, 255, 255); font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;" id="">
+    Cara Kerja: Aplikasi C++ menulis ke file text dengan interval waktu lalu melalui HTTP Golang dapat diakses file HTML oleh browser yang melakukan request pada file text
+  </p> 
+  <p style="color:rgb(255, 255, 255); font-family: Menlo, Monaco, Consolas, 'Courier New', monospace;" id="content">...</p>
+   
+  <script src="../url.js"></script>
+  <script>
+      setInterval(() => {
+          fetch(main_url('taskmanweb')+'text')
+          //usually we as a web dev return response.json(), but here are different
+          .then(response => response.text()) 
+          .then(data => {
+              // Get a reference to the element with the ID "myElement"
+              var myElement = document.getElementById("content");
+
+              // Set the innerHTML to the new content
+              myElement.innerHTML = data;
+          })
+          .catch(error => {
+              console.error('Error:', error);
+          });
+      }, 2000);
+  </script>
+</body>
+</html>
